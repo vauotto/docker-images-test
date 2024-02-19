@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.0.2](https://github.com/vauotto/docker-images-test/compare/v1.0.1...v1.0.2) (2024-02-19)
+
+
+### Bug Fixes
+
+* update gitignore ([6179b35](https://github.com/vauotto/docker-images-test/commit/6179b354d2ee8de63e35a5309ab0f8fa43d367cc))
+
 ## [1.0.1](https://github.com/vauotto/docker-images-test/compare/v1.0.0...v1.0.1) (2024-02-19)
 
 
