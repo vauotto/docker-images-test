@@ -67,4 +67,4 @@ jobs:
           files: docker-bake.hcl
           workdir: container/node
           push: true
-          set: target.tags.TAG=latest
+          set: TAG=latest
