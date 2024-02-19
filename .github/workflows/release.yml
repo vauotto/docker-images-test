@@ -29,7 +29,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-
+          
+      - name: move .releaserc file
+        run: mv .github/.releaserc .
+  
       - name: Setup semantic-release
         run: npm install -g semantic-release @semantic-release/git @semantic-release/changelog -D
       
