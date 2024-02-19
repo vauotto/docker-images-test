@@ -1,6 +1,6 @@
 {
   "branches": ["main", "test"],
-  "repositoryUrl": "https://github.com/philips-internal/emr-devops-containers",
+  "repositoryUrl": "https://github.com/vauotto/docker-images-test",
   "debug": "false",
   "plugins": [
     "@semantic-release/commit-analyzer",
