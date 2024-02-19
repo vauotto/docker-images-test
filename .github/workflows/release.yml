@@ -54,6 +54,12 @@ jobs:
             images: |
              ghcr.io/vauotto/emr-node-build-container
              ghcr.io/vauotto/emr-node-dev-containe
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Build and publish Images
         uses: docker/bake-action@v4
