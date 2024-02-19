@@ -64,6 +64,6 @@ jobs:
       - name: Build and publish Images
         uses: docker/bake-action@v4
         with:
-          files: ./container/node/docker-bake.hcl
+          files: docker-bake.hcl
           workdir: .container/node
           push: true
