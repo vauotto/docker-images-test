@@ -59,8 +59,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
             images: |
-             ghcr.io/vauotto/emr-node-build-container
-             ghcr.io/vauotto/emr-node-dev-container
+             ghcr.io/vauotto/docker-images-test/emr-node-build-container
+             ghcr.io/vauotto/docker-images-test/emr-node-dev-container
       
       - name: Set up QEMU
         if: ${{ env.TAG != '' }}
