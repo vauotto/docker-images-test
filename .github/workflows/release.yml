@@ -17,7 +17,7 @@ env:
 
 jobs:
   release:
-    runs-on: [self-hosted, linux, x64, philips-code-hub, ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Get latest version of code
