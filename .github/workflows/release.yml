@@ -53,7 +53,7 @@ jobs:
         with:
             images: |
              ghcr.io/vauotto/emr-node-build-container
-             ghcr.io/vauotto/emr-node-dev-containe
+             ghcr.io/vauotto/emr-node-dev-container
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -67,3 +67,4 @@ jobs:
           files: docker-bake.hcl
           workdir: container/node
           push: true
+          set: target.tags.TAG=latest
