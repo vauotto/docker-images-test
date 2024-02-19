@@ -1,0 +1,41 @@
+FROM debian:12
+
+ARG TAG
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+LABEL org.opencontainers.image.source https://github.com/philips-internal/emr-devops-containers/
+LABEL org.opencontainers.image.version $TAG
+
+RUN apt-get update && apt-get install -y sudo
+
+RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean -y
+RUN sudo apt-get install --quiet --no-install-recommends -y ca-certificates ssh curl unzip gnupg2 libicu-dev git
+
+# Install Cisco Umbrella Root CA https://ubuntu.com/server/docs/security-trust-store
+RUN sudo curl -s https://www.cisco.com/security/pki/certs/ciscoumbrellaroot.pem -o /usr/local/share/ca-certificates/Cisco_Umbrella_Root_CA.pem && sudo update-ca-certificates
+
+# Copy install tools 
+COPY tools /tmp/tools
+RUN sudo chmod -R +x /tmp/tools
+
+# Install Powershell Core
+RUN sudo /tmp/tools/install_powershell.sh
+
+# Install Github CLI 
+RUN sudo curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/githubcli-keys.gpg > /dev/null && \
+    echo "deb [arch=$(dpkg --print-architecture)] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list && \
+    sudo apt-get update -y && sudo apt-get install --quiet --no-install-recommends -y gh
+
+# AWS CLI
+RUN sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -o "/tmp/tools/awscliv2.zip"  && \
+    sudo unzip "/tmp/tools/awscliv2.zip" && \
+    sudo ./aws/install
+
+# NVM
+RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash 
+
+# Cleanup
+RUN sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/* && sudo apt-get clean
+
+CMD ["/bin/bash"]
