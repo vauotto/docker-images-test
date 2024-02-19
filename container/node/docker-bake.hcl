@@ -12,12 +12,12 @@ target "build-container" {
     inherits = ["docker-metadata-action"]
     dockerfile = "DockerFile.build.container"
     platforms = ["linux/amd64", "linux/arm64"]
-    tags = ["ghcr.io/philips-internal/emr-node-build-container:${TAG}"]
+    tags = ["ghcr.io/vauotto/emr-node-build-container:${TAG}"]
 }
 
 target "dev-container" {
     inherits = ["docker-metadata-action"]
     dockerfile = "DockerFile.dev.container"
     platforms = ["linux/amd64", "linux/arm64"]
-    tags = ["ghcr.io/philips-internal/emr-node-dev-container:${TAG}"]
+    tags = ["ghcr.io/vauotto/emr-node-dev-container:${TAG}"]
 }

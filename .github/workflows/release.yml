@@ -52,8 +52,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
             images: |
-             ghcr.io/philips-internal/emr-node-build-container
-             ghcr.io/philips-internal/emr-node-dev-containe
+             ghcr.io/vauotto/emr-node-build-container
+             ghcr.io/vauotto/emr-node-dev-containe
 
       - name: Build and publish Images
         uses: docker/bake-action@v4
