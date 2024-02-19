@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.0.1](https://github.com/vauotto/docker-images-test/compare/v1.0.0...v1.0.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* testing other path ([fd3173c](https://github.com/vauotto/docker-images-test/commit/fd3173caed62e2b9b60b52ec1185f78b2ea61c43))
+
 # 1.0.0 (2024-02-19)
 
 
